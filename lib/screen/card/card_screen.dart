@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:get/get.dart';
 import 'package:qr_code_programing_app/component/row_text.dart';
 import 'package:qr_code_programing_app/gen/assets.gen.dart';
