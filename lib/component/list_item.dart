@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:qr_code_programing_app/gen/assets.gen.dart';
 
 class ListItem extends StatelessWidget {
-  const ListItem({Key? key, required this.onTap}) : super(key: key);
+  const ListItem({
+    Key? key,
+    required this.onTap,
+    required this.languageName,
+    required this.image,
+  }) : super(key: key);
 
   final Function() onTap;
+  final String languageName;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +31,19 @@ class ListItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Text(
-                'Dart',
-                style: TextStyle(
+              Text(
+                languageName,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                 ),
               ),
-              const Text(
-                '🌟9',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
+              SizedBox(
+                width: 40,
+                height: 40,
+                child: Image.asset(
+                  'assets/$image.png',
                 ),
-              ),
-              Assets.dart.image(
-                width: 50,
-                height: 50,
               ),
             ],
           ),
