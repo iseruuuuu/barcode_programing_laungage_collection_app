@@ -29,7 +29,7 @@ class CardScreen extends StatelessWidget {
             ),
             const RowText(
               rightWord: 'レア度',
-              leftWord: '10',
+              leftWord: '🌟10',
             ),
             const Text(
               '1929979004002',
