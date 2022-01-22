@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_code_programing_app/component/list_item.dart';
-import 'package:qr_code_programing_app/gen/assets.gen.dart';
 import 'package:qr_code_programing_app/screen/language_list/language_list_screen_controller.dart';
 
 class LanguageListScreen extends StatelessWidget {
@@ -13,11 +12,12 @@ class LanguageListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
+        itemCount: controller.languageList.length,
         itemBuilder: (BuildContext context, int index) {
           return ListItem(
             onTap: controller.onTap,
-            languageName: 'Dart',
-            image: 'dart',
+            languageName: controller.languageList[index].languageName,
+            image: controller.languageList[index].image,
           );
         },
       ),
