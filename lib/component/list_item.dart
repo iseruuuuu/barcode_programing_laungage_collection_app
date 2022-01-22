@@ -21,8 +21,8 @@ class ListItem extends StatelessWidget {
         decoration: const BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: Colors.black, //色
-              width: 5, //太さ
+              color: Colors.black,
+              width: 5,
             ),
           ),
         ),
