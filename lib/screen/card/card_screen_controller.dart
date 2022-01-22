@@ -12,4 +12,8 @@ class CardScreenController extends GetxController {
     super.onInit();
   }
 
+  void onTapBack() {
+    Get.back();
+  }
+
 }
