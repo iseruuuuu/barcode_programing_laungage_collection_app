@@ -1,6 +1,7 @@
 import 'package:barcode_scan2/platform_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:qr_code_programing_app/screen/card/card_screen.dart';
 
 class HomeScreenController extends GetxController {
   final selectedIndex = 0.obs;
@@ -10,6 +11,10 @@ class HomeScreenController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+  }
+
+  void onTap() {
+    Get.to(() => const CardScreen());
   }
 
   Future<void> onTapCamera() async {
