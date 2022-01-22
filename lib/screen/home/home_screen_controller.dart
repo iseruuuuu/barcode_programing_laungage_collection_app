@@ -5,15 +5,11 @@ import 'package:get/get.dart';
 class HomeScreenController extends GetxController {
   final selectedIndex = 0.obs;
   final code = ''.obs;
-
   final codeList = [].obs;
-
 
   @override
   void onInit() {
     super.onInit();
-
-    print(codeList.length);
   }
 
   Future<void> onTapCamera() async {
@@ -28,6 +24,15 @@ class HomeScreenController extends GetxController {
     codeList.add(code.value);
   }
 
+  void checkNumber() {
+    //TODO 番号が重複していないかを確認する
+  }
 
+  void registerCode() {
+    //TODO コードをリストに登録させる。
 
+    //TODO ランダムで獲得するものを決める。
+
+    //TODO ここで、獲得したものを登録するかどうかの確認
+  }
 }

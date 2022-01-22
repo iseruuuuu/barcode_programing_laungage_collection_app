@@ -18,15 +18,16 @@ class HomeScreen extends StatelessWidget {
             TextButton(
               onPressed: controller.onTapCamera,
               child: const Text(
-                '押してね',
+                'コードを読み込む',
               ),
             ),
             Obx(
               () => Text(
-                controller.code.value,
+                '読み込んだ内容' + controller.code.value,
               ),
             ),
-            Obx(() => Expanded(
+            Obx(
+              () => Expanded(
                 child: ListView.builder(
                   itemCount: controller.codeList.length,
                   itemBuilder: (BuildContext context, int index) {
