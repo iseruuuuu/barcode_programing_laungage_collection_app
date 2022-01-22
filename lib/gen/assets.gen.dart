@@ -10,9 +10,14 @@ import 'package:flutter/widgets.dart';
 class Assets {
   Assets._();
 
+  static const AssetGenImage c = AssetGenImage('assets/c.png');
+  static const AssetGenImage c2 = AssetGenImage('assets/c2.png');
+  static const AssetGenImage c3 = AssetGenImage('assets/c3.png');
   static const AssetGenImage dart = AssetGenImage('assets/dart.png');
   static const AssetGenImage flutter = AssetGenImage('assets/flutter.png');
+  static const AssetGenImage java = AssetGenImage('assets/java.png');
   static const AssetGenImage kotlin = AssetGenImage('assets/kotlin.png');
+  static const AssetGenImage python = AssetGenImage('assets/python.png');
   static const AssetGenImage swift = AssetGenImage('assets/swift.png');
 }
 
