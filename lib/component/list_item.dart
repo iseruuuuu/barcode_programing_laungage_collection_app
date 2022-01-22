@@ -15,38 +15,39 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Container(
-        decoration: const BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 5,
-            ),
+    return Container(
+      decoration: const BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.black,
+            width: 2,
           ),
         ),
-        child: GestureDetector(
-          onTap: onTap,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                languageName,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
+      ),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
+              languageName,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
               ),
-              SizedBox(
-                width: 40,
-                height: 40,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: SizedBox(
+                width: 60,
+                height: 60,
                 child: Image.asset(
                   'assets/$image.png',
+                  fit: BoxFit.cover,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
