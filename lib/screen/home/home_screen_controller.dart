@@ -1,8 +1,10 @@
+import 'dart:convert';
 import 'package:barcode_scan2/platform_wrapper.dart';
 import 'package:get/get.dart';
 import 'package:qr_code_programing_app/model/language_list.dart';
 import 'package:qr_code_programing_app/screen/language_list/language_list_screen.dart';
 import 'dart:math';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreenController extends GetxController {
   final selectedIndex = 0.obs;
@@ -15,7 +17,7 @@ class HomeScreenController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-
+    getListString();
   }
 
   void onTap() {
@@ -29,10 +31,10 @@ class HomeScreenController extends GetxController {
     // print(result.format); //ean13
 
     //if (result.format == 'unknown') {
-      checkNumber(code: result.rawContent);
-      //コードの値
-      code.value = result.rawContent;
-      registerCode();
+    checkNumber(code: result.rawContent);
+    //コードの値
+    code.value = result.rawContent;
+    registerCode();
     //}
   }
 
@@ -60,6 +62,7 @@ class HomeScreenController extends GetxController {
     languageList.add(languageLists);
 
     //TODO 保存する
+    setListString();
   }
 
   void registerLanguage({required int number}) {
@@ -102,5 +105,20 @@ class HomeScreenController extends GetxController {
         break;
       default:
     }
+  }
+
+  Future<void> setListString() async {
+    var prefs = await SharedPreferences.getInstance();
+    //TodoList形式 → Map形式 → JSON形式 → StrigList形式
+    var list = languageList;
+    var listItem = list.map((e) => json.encode(e.toJson())).toList();
+    prefs.setStringList('list', listItem);
+  }
+
+  void getListString() async {
+    var preference = await SharedPreferences.getInstance();
+    var getStringList = preference.getStringList('list') ?? [];
+    var languageListItem = getStringList.map((e) => LanguageList.fromJson(json.decode(e))).toList();
+    languageList.value = languageListItem;
   }
 }
