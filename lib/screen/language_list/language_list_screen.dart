@@ -10,16 +10,49 @@ class LanguageListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(LanguageListScreenController(), tag: '');
     return Scaffold(
-      appBar: AppBar(),
-      body: ListView.builder(
-        itemCount: controller.languageList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ListItem(
-            onTap: controller.onTap,
-            languageName: controller.languageList[index].languageName,
-            image: controller.languageList[index].image,
-          );
-        },
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 1,
+        title: const Text(
+          'コレクション',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 25,
+          ),
+        ),
+        leading: IconButton(
+          onPressed: controller.onTapBack,
+          icon: const Icon(
+            Icons.close,
+            color: Colors.black,
+            size: 40,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '${controller.languageList.length}/10',
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 25,
+              ),
+            ),
+          )
+        ],
+      ),
+      body: Obx(
+        () => ListView.builder(
+          itemCount: controller.languageList.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListItem(
+              onTap: () => controller.onTap(index: index),
+              languageName: controller.languageList[index].languageName,
+              image: controller.languageList[index].image,
+            );
+          },
+        ),
       ),
     );
   }

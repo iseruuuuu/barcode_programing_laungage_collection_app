@@ -13,18 +13,28 @@ class LanguageListScreenController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    setListString();
+    getListString();
   }
 
-  Future<void> setListString() async {
-    var prefs = await SharedPreferences.getInstance();
-    //TodoList形式 → Map形式 → JSON形式 → StrigList形式
-    var list = languageList;
-    var listItem = list.map((e) => json.encode(e.toJson())).toList();
-    prefs.setStringList('list', listItem);
+  void getListString() async {
+    var preference = await SharedPreferences.getInstance();
+    var getStringList = preference.getStringList('list') ?? [];
+    var languageListItem = getStringList
+        .map((e) => LanguageList.fromJson(json.decode(e)))
+        .toList();
+    languageList.value = languageListItem;
   }
 
-  void onTap() {
-    Get.to(() => const CardScreen());
+  void onTap({required int index}) {
+    Get.to(
+      () => CardScreen(
+        languageList: languageList[index],
+        index: index,
+      ),
+    );
+  }
+
+  void onTapBack() {
+    Get.back();
   }
 }
