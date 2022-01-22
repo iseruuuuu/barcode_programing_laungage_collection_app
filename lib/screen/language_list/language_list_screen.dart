@@ -16,6 +16,8 @@ class LanguageListScreen extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return ListItem(
             onTap: controller.onTap,
+            languageName: 'Dart',
+            image: 'dart',
           );
         },
       ),
