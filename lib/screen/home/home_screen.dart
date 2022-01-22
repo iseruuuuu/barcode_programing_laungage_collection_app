@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:get/get.dart';
+import 'package:qr_code_programing_app/component/list_item.dart';
 import 'package:qr_code_programing_app/screen/home/home_screen_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -37,6 +37,20 @@ class HomeScreen extends StatelessWidget {
                   itemCount: controller.codeList.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Text(controller.codeList[index]);
+                  },
+                ),
+              ),
+            ),
+            Obx(
+              () => Expanded(
+                child: ListView.builder(
+                  itemCount: controller.languageList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListItem(
+                      onTap: () {},
+                      languageName: controller.languageList[index].languageName,
+                      image: controller.languageList[index].image,
+                    );
                   },
                 ),
               ),
