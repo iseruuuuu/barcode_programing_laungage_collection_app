@@ -118,7 +118,9 @@ class HomeScreenController extends GetxController {
   void getListString() async {
     var preference = await SharedPreferences.getInstance();
     var getStringList = preference.getStringList('list') ?? [];
-    var languageListItem = getStringList.map((e) => LanguageList.fromJson(json.decode(e))).toList();
+    var languageListItem = getStringList
+        .map((e) => LanguageList.fromJson(json.decode(e)))
+        .toList();
     languageList.value = languageListItem;
   }
 }

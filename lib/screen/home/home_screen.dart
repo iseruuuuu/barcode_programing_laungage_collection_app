@@ -10,10 +10,17 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(HomeScreenController(), tag: '');
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 1,
         leading: IconButton(
           onPressed: controller.onTap,
-          icon: const Icon(Icons.apps),
+          icon: const Icon(
+            Icons.apps,
+            color: Colors.black,
+            size: 35,
+          ),
         ),
       ),
       body: Center(
@@ -24,35 +31,6 @@ class HomeScreen extends StatelessWidget {
               onPressed: controller.onTapCamera,
               child: const Text(
                 'コードを読み込む',
-              ),
-            ),
-            Obx(
-              () => Text(
-                '読み込んだ内容' + controller.code.value,
-              ),
-            ),
-            Obx(
-              () => Expanded(
-                child: ListView.builder(
-                  itemCount: controller.codeList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Text(controller.codeList[index]);
-                  },
-                ),
-              ),
-            ),
-            Obx(
-              () => Expanded(
-                child: ListView.builder(
-                  itemCount: controller.languageList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListItem(
-                      onTap: () {},
-                      languageName: controller.languageList[index].languageName,
-                      image: controller.languageList[index].image,
-                    );
-                  },
-                ),
               ),
             ),
           ],
