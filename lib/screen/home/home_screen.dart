@@ -24,10 +24,16 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const Text('プログラミング図鑑'),
-            TextButton(
+            const Text(
+              'プログラミング図鑑',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+              ),
+            ),
+            ElevatedButton(
               onPressed: controller.onTapCamera,
               child: const Text(
                 'コードを読み込む',
