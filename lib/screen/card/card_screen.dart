@@ -33,8 +33,8 @@ class CardScreen extends StatelessWidget {
         leading: IconButton(
           color: Colors.black,
           icon: const Icon(
-            Icons.close,
-            size: 40,
+            Icons.arrow_back_ios,
+            size: 25,
           ),
           onPressed: controller.onTapBack,
         ),

@@ -24,9 +24,9 @@ class LanguageListScreen extends StatelessWidget {
         leading: IconButton(
           onPressed: controller.onTapBack,
           icon: const Icon(
-            Icons.close,
+            Icons.arrow_back_ios,
             color: Colors.black,
-            size: 40,
+            size: 25,
           ),
         ),
         actions: [
