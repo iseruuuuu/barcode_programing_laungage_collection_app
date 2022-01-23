@@ -10,9 +10,9 @@ class LanguageListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(LanguageListScreenController(), tag: '');
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFC4C6A0),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFC4C6A0),
         elevation: 1,
         title: const Text(
           'コレクション',

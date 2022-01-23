@@ -9,9 +9,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(HomeScreenController(), tag: '');
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFC4C6A0),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFC4C6A0),
         elevation: 1,
         leading: IconButton(
           onPressed: controller.onTap,
