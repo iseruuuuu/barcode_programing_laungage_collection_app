@@ -18,7 +18,7 @@ class LanguageListScreenController extends GetxController {
 
   void getListString() async {
     var preference = await SharedPreferences.getInstance();
-    var getStringList = preference.getStringList('list') ?? [];
+    var getStringList = preference.getStringList('lists') ?? [];
     var languageListItem = getStringList
         .map((e) => LanguageList.fromJson(json.decode(e)))
         .toList();

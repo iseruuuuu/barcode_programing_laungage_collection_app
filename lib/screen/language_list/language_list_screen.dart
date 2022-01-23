@@ -34,7 +34,7 @@ class LanguageListScreen extends StatelessWidget {
             () => Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                '${controller.languageList.length}/10',
+                '${controller.languageList.length}/9',
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 25,
