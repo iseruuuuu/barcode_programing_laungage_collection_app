@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qr_code_programing_app/component/row_text.dart';
 import 'package:qr_code_programing_app/model/language_list.dart';
-import 'package:qr_code_programing_app/screen/home/home_screen_controller.dart';
 
 import 'card_screen_controller.dart';
 
@@ -25,10 +23,11 @@ class CardScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: const Color(0xFFC4C6A0),
         title: Text(
-          '図鑑No.$index',
+          '図鑑No.$index ${languageList.languageName}',
           style: const TextStyle(
-            fontSize: 30,
+            fontSize: 25,
             color: Colors.black,
+            fontWeight: FontWeight.bold,
           ),
         ),
         leading: IconButton(
@@ -40,66 +39,82 @@ class CardScreen extends StatelessWidget {
           onPressed: controller.onTapBack,
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: Center(
+            child: Column(
               children: [
                 const Spacer(),
-                SizedBox(
-                  width: 150,
-                  height: 150,
-                  child: Image.asset(
-                    'assets/${languageList.image}.png',
-                    fit: BoxFit.cover,
+                Row(
+                  children: [
+                    const Spacer(),
+                    SizedBox(
+                      width: 150,
+                      height: 150,
+                      child: Image.asset(
+                        'assets/${languageList.image}.png',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const Spacer(),
+                    Column(
+                      children: [
+                        Text(
+                          'No.$index',
+                          style: const TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          languageList.languageName,
+                          style: const TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 30),
+                  child: Divider(
+                    thickness: 1,
+                    color: Colors.black,
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    languageList.explain,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                // ElevatedButton(
+                //   style: ElevatedButton.styleFrom(
+                //     elevation: 0,
+                //     primary: Colors.black,
+                //   ),
+                //   onPressed: () => controller.onTapOpenUrl(
+                //     url: languageList.languageName,
+                //   ),
+                //   child: const Text(
+                //     '詳しくみてみる!',
+                //   ),
+                // ),
                 const Spacer(),
-                Text(
-                  'No $index',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  languageList.languageName,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                const Text('引用元：Wikipedia'),
                 const Spacer(),
               ],
             ),
-            SizedBox(
-              width: 200,
-              height: 200,
-              child: Image.asset(
-                'assets/${languageList.image}.png',
-                fit: BoxFit.cover,
-              ),
-            ),
-            RowText(
-              rightWord: '言語名',
-              leftWord: languageList.languageName,
-            ),
-            Text(
-              '図鑑No.$index',
-              style: const TextStyle(
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              languageList.code,
-              style: const TextStyle(
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
