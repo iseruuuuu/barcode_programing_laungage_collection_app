@@ -27,6 +27,9 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
+            Text('プログラミング図鑑'),
+
             TextButton(
               onPressed: controller.onTapCamera,
               child: const Text(
