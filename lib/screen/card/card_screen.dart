@@ -20,10 +20,10 @@ class CardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(CardScreenController(), tag: '');
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFC4C6A0),
       appBar: AppBar(
-        elevation: 1,
-        backgroundColor: Colors.white,
+        elevation: 0,
+        backgroundColor: const Color(0xFFC4C6A0),
         title: Text(
           '図鑑No.$index',
           style: const TextStyle(
@@ -44,6 +44,35 @@ class CardScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Row(
+              children: [
+                const Spacer(),
+                SizedBox(
+                  width: 150,
+                  height: 150,
+                  child: Image.asset(
+                    'assets/${languageList.image}.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const Spacer(),
+                Text(
+                  'No $index',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  languageList.languageName,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Spacer(),
+              ],
+            ),
             SizedBox(
               width: 200,
               height: 200,
