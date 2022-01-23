@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qr_code_programing_app/component/list_item.dart';
 import 'package:qr_code_programing_app/screen/home/home_screen_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -27,9 +26,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
-            Text('プログラミング図鑑'),
-
+            const Text('プログラミング図鑑'),
             TextButton(
               onPressed: controller.onTapCamera,
               child: const Text(
