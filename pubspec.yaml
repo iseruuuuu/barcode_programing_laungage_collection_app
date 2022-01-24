@@ -12,6 +12,8 @@ dependencies:
   get: ^4.6.1
   shared_preferences: ^2.0.12
   url_launcher: ^6.0.18
+  carousel_slider: ^4.0.0
+  smooth_page_indicator: ^1.0.0+2
 dev_dependencies:
   flutter_test:
     sdk: flutter
