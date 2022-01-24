@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_code_programing_app/component/list_item.dart';
@@ -9,49 +10,46 @@ class LanguageListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LanguageListScreenController(), tag: '');
-    return Scaffold(
-      backgroundColor: const Color(0xFFC4C6A0),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFC4C6A0),
-        elevation: 1,
-        title: const Text(
+    return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.extraLightBackgroundGray,
+      navigationBar: CupertinoNavigationBar(
+        backgroundColor: CupertinoColors.systemBackground,
+        middle: const Text(
           'コレクション',
           style: TextStyle(
             color: Colors.black,
             fontSize: 25,
           ),
         ),
-        leading: IconButton(
-          onPressed: controller.onTapBack,
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-            size: 25,
+        leading: GestureDetector(
+          onTap: controller.onTapBack,
+          child: const Icon(
+            Icons.apps,
           ),
         ),
-        actions: [
-          Obx(
-            () => Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                '${controller.languageList.length}/9',
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                ),
+        trailing: Obx(
+          () => Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '${controller.languageList.length}/9',
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 25,
               ),
             ),
-          )
-        ],
+          ),
+        ),
       ),
-      body: Obx(
+      child: Obx(
         () => ListView.builder(
           itemCount: controller.languageList.length,
           itemBuilder: (BuildContext context, int index) {
-            return ListItem(
-              onTap: () => controller.onTap(index: index),
-              languageName: controller.languageList[index].languageName,
-              image: controller.languageList[index].image,
+            return Material(
+              child: ListItem(
+                onTap: () => controller.onTap(index: index),
+                languageName: controller.languageList[index].languageName,
+                image: controller.languageList[index].image,
+              ),
             );
           },
         ),

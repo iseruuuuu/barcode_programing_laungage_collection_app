@@ -17,11 +17,28 @@ class HomeScreenController extends GetxController {
   final count = 0.obs;
   final explain = ''.obs;
 
+  final images = [
+    "assets/c.png",
+    "assets/c2.png",
+    "assets/c3.png",
+    "assets/dart.png",
+    "assets/flutter.png",
+    "assets/java.png",
+    "assets/kotlin.png",
+    "assets/python.png",
+    "assets/swift.png",
+  ].obs;
+  final activeIndex = 0.obs;
+
   @override
   void onInit() {
     super.onInit();
     getListString();
     getInt();
+  }
+
+  void onPageChanged({required int index}) {
+    activeIndex.value = index;
   }
 
   void onTap() {
